@@ -8,23 +8,23 @@ import org.junit.Test;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 /**
- * TestArchitecture
+ * TEsts if there is an Interface within an impl folder.
  *
  * @author Dennis Rippinger
  */
 public class InterfaceRules {
 
-	@Test
-	public void interfaces_rule() {
-		JavaClasses importedClasses = new ClassFileImporter().importPackages("de.drippinger");
+    @Test
+    public void interfaces_rule() {
+        JavaClasses importedClasses = new ClassFileImporter().importPackages("de.drippinger");
 
-		ArchRule rule = classes()
-				.that()
-				.resideInAnyPackage("..impl..")
-				.should()
-				.notBeInterfaces();
+        ArchRule rule = classes()
+            .that()
+            .resideInAnyPackage("..impl..")
+            .should()
+            .notBeInterfaces();
 
-		rule.check(importedClasses);
-	}
+        rule.check(importedClasses);
+    }
 
 }

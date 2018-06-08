@@ -9,11 +9,11 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
 
 /**
- * LayerTest
+ * Tests for Layer.
  *
  * @author Dennis Rippinger
  */
-public class LayerTest {
+public class LayerRule {
 
 	@Test
 	public void layer_test() {

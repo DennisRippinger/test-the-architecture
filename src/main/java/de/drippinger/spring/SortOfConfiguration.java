@@ -7,10 +7,10 @@ import org.springframework.context.annotation.Bean;
  *
  * @author Dennis Rippinger
  */
-public class SortOfconfiguration {
+public class SortOfConfiguration {
 
 
-	//@Bean
+	@Bean
 	public String buildConfig() {
 		return "Test";
 	}

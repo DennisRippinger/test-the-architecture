@@ -12,7 +12,8 @@ import org.junit.runner.RunWith;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 /**
- * LoggingRule
+ * Tests if incompatible Annotations are used together.
+ * Here different Aspects.
  *
  * @author Dennis Rippinger
  */
@@ -20,27 +21,27 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 @AnalyzeClasses(packages = "de.drippinger")
 public class LoggingRule {
 
-	@ArchTest
-	public static final ArchRule LOGGING_AND_HISTRIX = noClasses()
-			.that()
-			.areAnnotatedWith("de.drippinger.aspect.LoggingAnnotation")
-			.should()
-			.callMethodWhere(hystrixAnnotationIsPresent())
-			.because("Hystrix and Loggable Aspects do not work together with default Spring AOP");
+    @ArchTest
+    public static final ArchRule LOGGING_AND_HISTRIX = noClasses()
+        .that()
+        .areAnnotatedWith("de.drippinger.aspect.LoggingAnnotation")
+        .should()
+        .callMethodWhere(hystrixAnnotationIsPresent())
+        .because("Hystrix and Loggable Aspects do not work together with default Spring AOP");
 
-	/**
-	 * Hystrix and our custom Logging framework are both Aspects which will cause together an exclusion.
-	 *
-	 * @return
-	 */
-	static DescribedPredicate<JavaMethodCall> hystrixAnnotationIsPresent() {
-		return new DescribedPredicate<JavaMethodCall>("Hystrix annotation is present") {
-			@Override
-			public boolean apply(JavaMethodCall javaMethodCall) {
-				return javaMethodCall
-						.getOrigin()
-						.isAnnotatedWith(HystrixCommand.class);
-			}
-		};
-	}
+    /**
+     * Hystrix and our custom Logging framework are both Aspects which will cause together an exclusion.
+     *
+     * @return
+     */
+    static DescribedPredicate<JavaMethodCall> hystrixAnnotationIsPresent() {
+        return new DescribedPredicate<JavaMethodCall>("Hystrix annotation is present") {
+            @Override
+            public boolean apply(JavaMethodCall javaMethodCall) {
+                return javaMethodCall
+                    .getOrigin()
+                    .isAnnotatedWith(HystrixCommand.class);
+            }
+        };
+    }
 }

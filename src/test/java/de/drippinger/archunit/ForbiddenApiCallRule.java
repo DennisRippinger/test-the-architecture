@@ -14,22 +14,22 @@ import static com.tngtech.archunit.lang.conditions.ArchConditions.callMethodWher
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 /**
- * ForbiddenApiCall
+ * Tests if certain forbidden methods are used.
  *
  * @author Dennis Rippinger
  */
 @RunWith(ArchUnitRunner.class)
 @AnalyzeClasses(packages = "de.drippinger")
-public class ForbiddenApiCall {
+public class ForbiddenApiCallRule {
 
-	@ArchTest
-	public static final ArchRule LOGGING_GREATER_INFO_SHOULD_USE_CUSTOM_LOGGER = noClasses()
-			.should(
-					callMethodWhere(target(owner(assignableTo("org.slf4j.Logger")))
-							.and(target(name("warn")))
-							.or(target(name("error")))
-							.or(target(name("fatal"))))
-			)
-			.because("One should use our custom logger with defined log messages");
+    @ArchTest
+    public static final ArchRule LOGGING_GREATER_INFO_SHOULD_USE_CUSTOM_LOGGER = noClasses()
+        .should(
+            callMethodWhere(target(owner(assignableTo("org.slf4j.Logger")))
+                .and(target(name("warn")))
+                .or(target(name("error")))
+                .or(target(name("fatal"))))
+        )
+        .because("One should use our custom logger with defined log messages");
 
 }
