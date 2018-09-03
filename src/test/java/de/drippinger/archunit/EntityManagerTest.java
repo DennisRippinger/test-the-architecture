@@ -14,7 +14,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
  */
 @RunWith(ArchUnitRunner.class)
 @AnalyzeClasses(packages = "de.drippinger")
-public class EntityManagerRule {
+public class EntityManagerTest {
 
     @ArchTest
     public static final ArchRule only_persistence_may_use_the_EntityManager =

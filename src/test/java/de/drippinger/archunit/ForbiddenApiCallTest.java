@@ -20,7 +20,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
  */
 @RunWith(ArchUnitRunner.class)
 @AnalyzeClasses(packages = "de.drippinger")
-public class ForbiddenApiCallRule {
+public class ForbiddenApiCallTest {
 
     @ArchTest
     public static final ArchRule LOGGING_GREATER_INFO_SHOULD_USE_CUSTOM_LOGGER = noClasses()

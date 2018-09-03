@@ -12,7 +12,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
  *
  * @author Dennis Rippinger
  */
-public class InterfaceRules {
+public class InterfaceTest {
 
     @Test
     public void interfaces_rule() {

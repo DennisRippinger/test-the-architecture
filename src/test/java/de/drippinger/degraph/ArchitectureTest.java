@@ -7,7 +7,7 @@ import static de.schauderhaft.degraph.check.JCheck.violationFree;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class Architecture {
+public class ArchitectureTest {
 
 	@Test
 	public void should_be_free_of_cycles() {

@@ -13,7 +13,7 @@ import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
  *
  * @author Dennis Rippinger
  */
-public class LayerRule {
+public class LayerTest {
 
 	@Test
 	public void layer_test() {

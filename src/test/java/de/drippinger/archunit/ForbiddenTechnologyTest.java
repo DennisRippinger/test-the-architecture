@@ -17,7 +17,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
  */
 @RunWith(ArchUnitRunner.class)
 @AnalyzeClasses(packages = "de.drippinger")
-public class ForbiddenTechnologyRule {
+public class ForbiddenTechnologyTest {
 
     @ArchTest
     public static final ArchRule DOMAIN_SHOULD_NOT_USE_JPA = noClasses()
@@ -40,7 +40,7 @@ public class ForbiddenTechnologyRule {
 
             @Override
             public boolean apply(JavaAnnotation javaAnnotation) {
-                return javaAnnotation.getType().getPackage().startsWith(packageStartsWith);
+                return javaAnnotation.getType().getPackageName().startsWith(packageStartsWith);
             }
 
         };

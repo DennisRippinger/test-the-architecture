@@ -19,7 +19,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
  */
 @RunWith(ArchUnitRunner.class)
 @AnalyzeClasses(packages = "de.drippinger")
-public class LoggingRule {
+public class LoggingTest {
 
     @ArchTest
     public static final ArchRule LOGGING_AND_HISTRIX = noClasses()
