@@ -2,7 +2,7 @@ package de.drippinger.layer.service;
 
 import de.drippinger.layer.persistence.PersistenceLayer;
 
-import java.util.Random;
+import java.util.Date;
 
 /**
  * ServiceLayer
@@ -14,13 +14,12 @@ public class ServiceLayer {
 	private PersistenceLayer persistenceLayer;
 
 	public void doServiceLogic(String userData) {
-		String finalValue = userData + randomValue();
+        Date date = new Date();
 
-		persistenceLayer.storeToDatabase(finalValue);
-	}
+        String finalValue = userData + date;
 
-	private String randomValue() {
-		return String.valueOf(new Random().nextInt());
+
+        persistenceLayer.storeToDatabase(finalValue);
 	}
 
 }
